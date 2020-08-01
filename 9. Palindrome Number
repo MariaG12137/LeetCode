@@ -1,0 +1,36 @@
+/*
+Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+*/
+var isPalindrome = function(x) {
+    if(x<0){
+        return false;
+    }else{
+        let numReverse = Number(x.toString().split('').reverse().join(''));
+        console.log(numReverse);
+        return (x == numReverse)?true:false;
+    };
+};
+//Time complexity: O(n)
+//Space complexity: O(n)??
+
+/*
+Follow up: Coud you solve it without converting the integer to a string?
+*/
+var isPalindrome = function(x) {
+    if(x<0){
+        return false;
+    }else{
+        let degree = Math.floor(Math.log(x)/Math.log(10));
+        let reverse = 0;
+        let rem = 0;
+        let xClone = x; //Make a clone of x, because we need x for comparison later
+
+        for(let i=degree; i>=0;i--){
+            rem = xClone%10;
+            reverse += rem*Math.pow(10,i);
+            xClone = Math.floor((xClone-rem)/10);
+        }
+        console.log(reverse);
+        return (reverse == x)?true:false;
+    }
+};

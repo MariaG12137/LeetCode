@@ -1,0 +1,14 @@
+/*
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+*/
+var romanToInt = function(s) {
+    let map = new Map();
+    map.set('I',1).set('V',5).set('X',10).set('L',50).set('C',100).set('D',500).set('M',1000).set(undefined,0);
+    let int = 0;
+    for (let i=0; i< s.length; i++){
+        let sign = (map.get(s[i]) >= map.get(s[i+1]))?1:-1;
+        int += map.get(s[i])*sign;
+    }
+    console.log(int);
+    return int;
+};

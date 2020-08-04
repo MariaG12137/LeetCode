@@ -1,0 +1,14 @@
+/*
+Given a binary tree, 
+return the bottom-up level order traversal of its nodes' values. 
+(ie, from left to right, level by level from leaf to root).
+*/
+/*
+1. Post order traversal:
+Use potorder traversal to get all nodes
+Create a function that extracts every [1st, 2nd] value pairs, then store the 3rd in an array
+Call this function until only 1 node is left, return that node
+
+2. 
+
+*/

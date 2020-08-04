@@ -26,3 +26,10 @@ base case:
 Or else:
   result = Jump(n-1)+jump(n-2)
 */
+var climbStairs = function(n) {
+    if(n==1){return 1;}
+    if(n==2){return 2;}
+    else{
+        return climbStairs(n-1)+climbStairs(n-2)
+        }
+    };

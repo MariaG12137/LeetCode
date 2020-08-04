@@ -1,0 +1,13 @@
+/*Given two binary strings, return their sum (also a binary string).
+
+The input strings are both non-empty and contains only characters 1 or 0.
+*/
+/*
+Use recursion:
+    -Set i, j to be the fist digit
+    -result = []
+    -Define function add(i, j):
+        -Base case: when any one binary string run out of bound{add(i+1, j+1).concat(result)}
+        -if (sum = i+j+(add(i+1,j+1))>1){result.concat(sum-1), then return 1} 
+        -else{result.concat(sum), then return []}
+*/

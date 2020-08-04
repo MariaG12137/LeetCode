@@ -43,3 +43,16 @@ var deleteDuplicates = function(head) {
     }
     return head
 };
+//recursive solution, delete all repeating values, and recursively calls the next value
+var deleteDuplicates = function(head) {
+    
+    function recurse(node) {
+        if(!node || !node.next) return;
+        while(node.next && node.next.val === node.val) {
+            node.next = node.next.next;
+        }                                               //delete all values same as node.val
+        recurse(node.next);
+    }
+    recurse(head);
+    return head;
+};

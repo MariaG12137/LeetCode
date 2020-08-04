@@ -11,3 +11,28 @@ Use recursion:
         -if (sum = i+j+(add(i+1,j+1))>1){result.concat(sum-1), then return 1} 
         -else{result.concat(sum), then return []}
 */
+var addBinary = function(a, b) {
+    let len = Math.max(a.length, b.length);
+    let aLen = a.length;
+    let bLen = b.length;
+    
+    for(let i=0; i<(len-aLen); i++){
+        a = '0'.concat(a);
+    }
+    
+    for(let i=0; i<(len-bLen); i++){
+        b = '0'.concat(b);}
+    
+    let result = '';
+    
+    let sum = function(i,j){
+        if(a[i]==null || b[j]== null){
+            return 0;
+        }else{
+            let total = parseInt(a[i])+parseInt(b[j])+sum(i+1,j+1);
+            result = parseInt(total%2)+result;
+            return total>1 ?1:0;
+        }
+    }
+    return sum(0,0)>0?'1'+result:result;
+};

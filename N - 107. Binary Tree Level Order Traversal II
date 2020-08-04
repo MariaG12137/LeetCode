@@ -9,6 +9,8 @@ Use potorder traversal to get all nodes
 Create a function that extracts every [1st, 2nd] value pairs, then store the 3rd in an array
 Call this function until only 1 node is left, return that node
 
-2. 
-
+2. Post order traversal with callback 
+Use potorder traversal to get all nodes
+Store the depth of each recursion, and the resulting nodes
+Return the node pairs from highest depth to lowest depth
 */

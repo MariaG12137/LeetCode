@@ -12,3 +12,19 @@ Using inplace replacement:
   -Ignore trailing 0s within nums1
   -compare last elements of nums2 and nums1, then insert
 */
+var merge = function(nums1, m, nums2, n) {
+    let idx1 = m-1, idx2 = n-1, idx3 = m+n-1;
+    let a = 3;
+    while (idx2 >= 0 && a>=0) {
+        if (nums1[idx1] > nums2[idx2]) {
+            nums1[idx3--] = nums1[idx1--];
+            
+        } else {
+            nums1[idx3--] = nums2[idx2--];//idx2 minus 1, and return its original value, since nums1[-1]==false, while loop enters here
+            console.log(2)
+        }
+        a--;
+    }
+    
+    console.log(idx1,idx2,idx3,a)
+};

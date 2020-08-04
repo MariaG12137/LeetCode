@@ -1,0 +1,52 @@
+/*
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+*/
+/*
+current = head;
+temp = current.val
+while (current.next exists){
+  if(current.next.val == temp){
+    remove current.next //2 cases: either middle node or end node
+    }
+  else{temp = current.val}
+
+Edge case: 
+  -only 1 head value, current.next is null =>dosn't do anything
+  -remove last value
+*/
+var deleteDuplicates = function(head) {
+    let previous = null;
+    let current = head;
+    let value = null;
+    
+    if(head === null){
+        return null;
+    }else if(current.next == null){
+        return head;
+    }else{
+        previous = current;
+        current = current.next;
+        value = head.val;
+        while(current.next !== null){
+
+            if(current.val === value){
+                if(current.next !== null){
+                    current = current.next;
+                    previous.next = current;
+                    
+                }else{
+                    previous.next = null;
+                }
+
+            }else{
+                value = current.val;
+                previous = current;
+                current = current.next; 
+            } 
+        }
+        if(current.val==value){
+            previous.next = null;
+        }
+    }
+    return head
+};

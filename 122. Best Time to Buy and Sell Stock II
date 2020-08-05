@@ -1,0 +1,29 @@
+/*Say you have an array prices for which the ith element is the price of a given stock on day i.
+
+Design an algorithm to find the maximum profit. You may complete as many transactions as you like 
+(i.e., buy one and sell one share of the stock multiple times).
+
+Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
+*/
+//Use while loop to find local optimum, then use recursion to add up all local optimums
+
+var maxProfit = function(prices) {
+
+    let sum = 0;
+    
+    let recur = function(i){
+        if(prices[i] == undefined){return};
+        
+        while(prices[++i] != undefined){
+            console.log(prices[i]);
+            if(prices[i]>prices[i-1]){
+                sum +=prices[i]-prices[i-1];
+                break;
+            }
+        }
+        console.log(i);
+        recur(i++);
+    }
+    recur(0);
+    return sum;
+}

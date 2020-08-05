@@ -1,0 +1,24 @@
+/*
+Say you have an array for which the ith element is the price of a given stock on day i.
+
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+
+Note that you cannot sell a stock before you buy one.
+*/
+//find local optimum, compare with best so far and update
+var maxProfit = function(prices) {
+    let best = 0;
+    let min = prices[0];
+    let maxBest = 0;
+    
+    for(let i=1;i<prices.length;i++){
+        if(prices[i-1]<min){
+            min = prices[i-1];
+        }
+        best = Math.max(best,prices[i]-min);
+        maxBest = Math.max(maxBest,best)
+ 
+    }
+    return maxBest
+    
+};

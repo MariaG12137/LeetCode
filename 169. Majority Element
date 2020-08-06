@@ -23,3 +23,21 @@ var majorityElement = function(nums) {
     
     return key
 };
+//2way. Boyer-Moore Voting Algorithm
+var majorityElement = function(nums) {
+    let res = nums[0]; //default first is majority
+    let count = 1; //first element count 1
+    for (let i = 1; i < nums.length; i++){
+        if (count == 0){
+            res = nums[i]; //update new majority 
+            count = 1; //reset
+        }
+        else if (nums[i] != res){
+            count--; //new element occur, offset count we have
+        }
+        else{
+            count++;
+        }
+    }
+    return res;
+};

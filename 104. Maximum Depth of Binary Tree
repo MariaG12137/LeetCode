@@ -1,0 +1,17 @@
+/*
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+Note: A leaf is a node with no children.
+*/
+/*
+Binary tree traversal, and count total number of recursions
+*/
+const maxDepth = (root) => {
+    if (!root) return 0
+    let left = maxDepth(root.left)
+    let right = maxDepth(root.right) //for the most bottom node
+    console.log(left,right)
+    return Math.max(left,right) + 1 //get the higher value, and increment 1, move to the level ABOVE
+};

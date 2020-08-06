@@ -1,0 +1,30 @@
+/*
+Write a program to find the node at which the intersection of two singly linked lists begins.
+*/
+var getIntersectionNode = function(headA, headB) {
+    
+    function traverse(n1, n2) {
+        if(n1 === n2) return n1;
+        if(!n1) return traverse(headB, n2.next);
+        if(!n2) return traverse(n1.next, headA);
+        return traverse(n1.next, n2.next)
+    }
+    return traverse(headA, headB);
+};
+//hash table
+var getIntersectionNode = function(headA, headB) {
+    const nodes = new Set();
+    
+    let curr = headA;
+    while(curr) {
+        nodes.add(curr);
+        curr = curr.next;
+    }
+    
+    curr = headB;
+    while(curr) {
+        if(nodes.has(curr)) return curr;
+        curr = curr.next;
+    }
+    return null;
+};

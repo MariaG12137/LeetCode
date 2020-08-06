@@ -6,3 +6,14 @@ Two binary trees are considered the same if they are structurally identical and 
 /*
 Binary tree traversal
 */
+var isSameTree = function(p, q) {
+    if(p == null && q == null){
+        return true;//check base condition when inputs are null
+    }else if(p== null || q == null){
+        return false; //check when one is null
+    }
+    
+    return (p.val == q.val)&&
+        isSameTree(p.left,q.left)&&
+        isSameTree(p.right,q.right);//return true when all three conditions are met. checks parent node and 2 child nodes
+};

@@ -16,3 +16,43 @@ Iterative:????
 5) If current is NULL and stack is empty then we are done.
 
 */
+var isSymmetric = function(root) {
+    
+    let isMirror = function(r1,r2){
+        if(r1==null && r2==null){
+            return true;
+        }else if(r1==null || r2==null){
+            return false;
+        }
+        
+        return (r1.val == r2.val)&&
+        isMirror(r1.left,r2.right)&&
+        isMirror(r1.right,r2.left);
+    }
+    return isMirror(root,root);
+}
+//Iterative
+var isSameTree = function(p, q) {
+  if (!p && !q) {
+    return true;
+  } else if (!p || !q) {
+    return false;
+  }
+  
+  function stringIt (t) {
+    let queue = [t];
+    let s = '';
+    while (queue.length) {
+      let n = queue.shift(); //take out the first value
+      if (n === null) {    //if null, write null
+        s += n;
+      } else {           //if not, write it's value
+        s += n.val;
+        queue.push(n.left); //then push in it's left and right childs to the end
+        queue.push(n.right);
+      }
+    }
+    return s;  //result is a string
+  }
+  return stringIt(p) === stringIt(q);
+}

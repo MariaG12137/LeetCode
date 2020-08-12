@@ -6,7 +6,7 @@ Note: For the purpose of this problem, we define empty string as valid palindrom
 var isPalindrome = function(s) {
     if (s.length < 2) return true;
   // const wordChar = s.replace(/\W/g, "");
-    const letterRange = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    const letterRange = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase(); //remove everything other than a-zA-Z0-9
     console.log(letterRange);
     for(let i =0; i<Math.floor(letterRange.length/2);i++){
         if(letterRange[i].charCodeAt(0) !== letterRange[letterRange.length-1-i].charCodeAt(0)){

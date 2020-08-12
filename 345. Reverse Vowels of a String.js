@@ -5,7 +5,7 @@ var reverseVowels = function(s) {
     let i = 0;
     let j = s.length-1;
     s = s.split('');
-    const vowels = ['a','e','i','o','u','A','E','I','O','U'];
+    const vowels = ['a','e','i','o','u','A','E','I','O','U']; //this will exceeds the time limit, use a set/dictionary instead!
     
     while(i<j){
         if(vowels.includes(s[i]) && vowels.includes(s[j])){

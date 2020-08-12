@@ -19,3 +19,15 @@ var moveZeroes = function(nums) {
         nums.push(0);
     }
 };
+=================================================================================================================
+//optimal
+    var moveZeroes = function(nums) {
+    let pointZero = 0;
+
+    for(let i=0; i<nums.length;i++){
+        if(nums[i] != 0){
+            [nums[pointZero],nums[i]]=[nums[i],nums[pointZero]]
+            pointZero++;
+        }
+    }
+};

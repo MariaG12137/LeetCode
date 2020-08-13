@@ -15,3 +15,10 @@ const maxDepth = (root) => {
     console.log(left,right)
     return Math.max(left,right) + 1 //get the higher value, and increment 1, move to the level ABOVE
 };
+======================================================================================================
+var maxDepth = function(root) {
+    let max = null;
+    if(!root)return null; //if a node dosen't exisit, return null to previous level
+    max = Math.max(maxDepth(root.left),maxDepth(root.right)) //get the bigger depth from the 2 subnodes
+    return max+1 //if the node exists, return it's max depth, and +1(itself)
+};

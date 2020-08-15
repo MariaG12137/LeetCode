@@ -43,3 +43,7 @@ var detectCapitalUse = function(word) {
     console.log(cap,allCap)
     return true;
 };
+====================================================================================================================
+var detectCapitalUse = function(word) {
+    return /^[A-Z]+$/.test(word) || /^[A-Z][a-z]+$/.test(word) || /^[a-z]+$/.test(word);
+};

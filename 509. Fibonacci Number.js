@@ -10,8 +10,19 @@ F(0) = 0,   F(1) = 1
 F(N) = F(N - 1) + F(N - 2), for N > 1.
 Given N, calculate F(N).
 */
+//recursive: time complexity = O(2^N), space = O(N)
 var fib = function(N) {
     if(N == 0){return 0};
     if(N == 1){return 1};
     return fib(N-1) + fib(N-2);
+};
+===============================================================================================================
+//Iterative: time complexity = O(N), space = O(1)
+var fib = function(N) {
+    let result = [0,1];
+    if(N<=1){return result[N]}
+    for(let i=2; i<=N; i++){
+        result.push(result[i-1]+result[i-2])
+    }
+    return result[N]
 };

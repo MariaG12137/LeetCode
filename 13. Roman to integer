@@ -12,3 +12,19 @@ var romanToInt = function(s) {
     console.log(int);
     return int;
 };
+======================================================================================================================
+//second submission
+var romanToInt = function(s) {
+    let map = new Map();
+    let result = 0;
+    map.set('I',1).set('V',5).set('X',10).set('L',50).set('C',100).set('D',500).set('M',1000).set('undefined',0);
+    
+    for(let i=0; i<s.length;i++){
+        if(map.get(s[i])<map.get(s[i+1])){
+            result -=  map.get(s[i])
+        }else{
+            result +=  map.get(s[i])
+        }
+    }
+    return result
+};

@@ -43,3 +43,47 @@ var mergeTwoLists = function(l1, l2) {
     sorted.next = l1||l2
     return temp;
 }
+===============================================================================================================================
+var mergeTwoLists = function(l1, l2) {
+    let Array = [];
+
+    while(l1){
+        Array.push(l1.val);
+        l1 = l1.next;
+    }
+    while(l2){
+        Array.push(l2.val);
+        l2 = l2.next;
+    }
+    Array.sort((a,b)=>(a-b));
+    
+    let result = new ListNode('^');
+    let current = result;
+    for (let num of Array){
+        current.next = new ListNode(num);
+        current = current.next;
+    }
+    return result.next;
+}
+var mergeTwoLists = function(l1, l2) {
+    let result = new ListNode('^');
+    let current = result;
+    
+    while(l1 && l2){
+        if(l1.val<l2.val){
+            current.next = l1;
+            l1 = l1.next;
+        }else{
+            current.next = l2;
+            l2 = l2.next;
+        }
+        current = current.next;
+    }
+    
+    if(l1 || l2){
+        current.next = l1 || l2;
+    }
+    return result.next
+    
+}
+

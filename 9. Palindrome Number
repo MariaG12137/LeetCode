@@ -34,3 +34,30 @@ var isPalindrome = function(x) {
         return (reverse == x)?true:false;
     }
 };
+=======================================================================================================================
+//second submission
+
+var isPalindrome = function(x) {
+    let reverseX = x.toString().split('').reverse().join('');
+    return x.toString()===reverseX;
+};
+
+//without converting to string
+var isPalindrome = function(x) {
+    if(x<0){
+        return false;
+    }
+    if(x==0){
+        return true
+    }
+    let reverse = [];
+    function parse(x){
+        if(x==0){
+            return;
+        }
+        reverse.push(x%10);
+        parse(Math.floor((x-(x%10))/10))
+    }
+    parse(x);
+    return reverse.join('')===x.toString()
+};

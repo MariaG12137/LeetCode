@@ -16,3 +16,12 @@ var reverse = function(x) {
 };
 //Time complexity:O(n)
 //Space complexity:O(1)??
+=========================================================================================================
+var reverse = function(x) {
+    let result = parseInt(x.toString().split('').reverse().join(''));
+    
+    if(result>Math.pow(2,31)-1 || result<Math.pow(-2,31)-1){
+        return 0
+    }
+    return x>0?result:-result
+};

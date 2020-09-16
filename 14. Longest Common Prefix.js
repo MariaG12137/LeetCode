@@ -35,3 +35,28 @@ var longestCommonPrefix = function(strs) {
     return commonString;
     }
 };
+============================================================================
+//second submission
+var longestCommonPrefix = function(strs) {
+    if(strs.length ===0){
+        return ''
+    }
+    let min = Infinity;
+    let result = [];
+    for(let str of strs){
+        min = Math.min(min,str.length)
+    }
+    outer: for(let i=0; i<min;i++){
+        for(let str of strs){
+            if(result[i]===undefined){
+                result[i]=str[i]
+            }else{
+                if(result[i] !== str[i]){
+                    result.pop();
+                    break outer;
+                }
+            }
+        }
+    }
+    return result.join('')
+};

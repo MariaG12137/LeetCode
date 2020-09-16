@@ -27,3 +27,15 @@ var maxSubArray = function(nums) {
     return maxSum
     
     };
+===================================================================================================================================
+//second submission
+var maxSubArray = function(nums) {
+
+    let maxSum = -Infinity;
+    let sum = -Infinity;
+    for(let num of nums){
+        sum = Math.max(num,sum+num);
+        maxSum = Math.max(maxSum,sum)
+    }
+    return maxSum  
+};

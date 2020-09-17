@@ -9,3 +9,26 @@ var minDepth = function(root) {
     if(!root.right){return minDepth(root.left)+1}
     return 1+Math.min(minDepth(root.left),minDepth(root.right));
 };
+==========================================================================================
+//second submission
+var minDepth = function(root) {
+    if(!root){
+        return 0
+    }
+
+    function depth(node){
+        if(!node){
+            return 0
+        }
+        if(!node.left){
+            return depth(node.right)+1
+        }
+        if(!node.right){
+            return depth(node.left)+1
+        }
+        return Math.min(depth(node.left),depth(node.right))+1;
+        
+    }
+    return depth(root)
+
+};

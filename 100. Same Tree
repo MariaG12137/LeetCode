@@ -17,3 +17,20 @@ var isSameTree = function(p, q) {
         isSameTree(p.left,q.left)&&
         isSameTree(p.right,q.right);//return true when all three conditions are met. checks parent node and 2 child nodes
 };
+===========================================================================================================================
+//second submission
+var isSameTree = function(p, q) {
+    function traverse(pNode,qNode){
+        if(!pNode && !qNode){
+            return true; 
+        }
+        if(!pNode || !qNode){
+            return false;
+        }
+        if(pNode.val !== qNode.val){
+            return false;
+        }
+        return traverse(pNode.left,qNode.left) && traverse(pNode.right,qNode.right);
+    }
+    return traverse(p,q)
+};

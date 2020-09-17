@@ -28,3 +28,24 @@ var merge = function(nums1, m, nums2, n) {
     
     console.log(idx1,idx2,idx3,a)
 };
+==========================================================================================================================
+//second submission
+var merge = function(nums1, m, nums2, n) {
+    let insert = m+n-1;
+    
+    while(n>0){
+
+        if(nums1[m-1]>nums2[n-1]){
+            nums1[insert] = nums1[m-1];
+            insert--;
+            m--;
+        }else{
+            nums1[insert] = nums2[n-1];
+            insert--;
+            n--;
+        }
+    }
+    return nums1
+    
+
+};

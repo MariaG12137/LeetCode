@@ -60,6 +60,39 @@ var addBinary = function(a, b) {
         total = total>1?1:0 
     }
     return total==1?'1'+result:result
-
-
+};
+====================================================================================================================================
+var addBinary = function(a, b) {
+    let A = a.split('').map(element =>parseInt(element));
+    let B = b.split('').map(element =>parseInt(element));
+    let zeros = [];
+    let result = [];
+    for(let i =0; i< Math.abs(A.length-B.length);i++){
+        zeros.push(0)
+    }
+    if(A.length>B.length){
+        B = zeros.concat(B);
+    }else{
+        A = zeros.concat(A);
+    }
+    function add(pA,pB,incre){
+        if(pA==-1 && incre==0){
+            return;
+        }
+        if(pA==-1 && incre==1){
+            result.push(1);
+            return;
+        }
+        
+        if(A[pA]+B[pB]+incre<2){
+            result.push(A[pA]+B[pB]+incre);
+            add(--pA, --pB,0)
+        }else{
+            result.push(A[pA]+B[pB]+incre-2);
+            add(--pA,--pB,1)
+        }
+    }
+    add(A.length-1,B.length-1,0);
+    return result.reverse().join('')
+    
 };

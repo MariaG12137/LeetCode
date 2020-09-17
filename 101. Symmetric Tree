@@ -56,3 +56,21 @@ var isSameTree = function(p, q) {
   }
   return stringIt(p) === stringIt(q);
 }
+============================================================================================
+//second submission
+var isSymmetric = function(root) {
+    function compare(nodeA,nodeB){
+        if(!nodeA && !nodeB){
+            return true
+        }
+        if(!nodeA || !nodeB){
+            return false
+        }
+        if(nodeA.val !== nodeB.val){
+            return false
+        }
+        return compare(nodeA.left,nodeB.right) && compare(nodeA.right, nodeB.left)
+    }
+    return compare(root,root)
+};
+

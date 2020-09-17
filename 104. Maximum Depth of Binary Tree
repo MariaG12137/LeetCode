@@ -22,3 +22,16 @@ var maxDepth = function(root) {
     max = Math.max(maxDepth(root.left),maxDepth(root.right)) //get the bigger depth from the 2 subnodes
     return max+1 //if the node exists, return it's max depth, and +1(itself)
 };
+
+==================================================================================================================
+//second submission
+var maxDepth = function(root) {
+    function depth(node){
+        if(!node){
+            return 0;
+        }else{
+            return Math.max(depth(node.left), depth(node.right))+1;
+        }
+    }
+    return depth(root)
+};

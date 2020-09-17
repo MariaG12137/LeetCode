@@ -56,3 +56,22 @@ var deleteDuplicates = function(head) {
     recurse(head);
     return head;
 };
+==================================================================================================================
+//second submission
+var deleteDuplicates = function(head) {
+    if(head == null){
+        return head
+    }
+    let previous = head;
+    let current = head.next;
+    while(current !== null){
+        if(previous.val == current.val){
+            current = current.next;
+            previous.next = current;
+        }else{
+            previous = current;
+            current = current.next;         
+        }
+    }
+    return head
+};

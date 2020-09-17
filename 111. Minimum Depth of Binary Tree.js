@@ -12,10 +12,6 @@ var minDepth = function(root) {
 ==========================================================================================
 //second submission
 var minDepth = function(root) {
-    if(!root){
-        return 0
-    }
-
     function depth(node){
         if(!node){
             return 0

@@ -33,3 +33,15 @@ var climbStairs = function(n) {
         return climbStairs(n-1)+climbStairs(n-2)
         }
     };
+  ====================================================================================================
+  var climbStairs = function(n) {
+    let result = [];
+    result[0]=0;
+    result[1]=1;
+    result[2]=2;
+    for(let i=3;i<=n;i++){
+        result[i]=result[i-1]+result[i-2]
+    }
+    return result[n]
+    
+    };

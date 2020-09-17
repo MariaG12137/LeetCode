@@ -1,0 +1,18 @@
+/*
+Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+*/
+var hasPathSum = function(root, sum) {  
+    function sumNode(node,total){
+        if(!node){
+            return false;
+        }
+        total = total + node.val;
+        if(!node.left && !node.right && total == sum) return true;
+        
+        let leftSum = sumNode(node.left,total);
+        let rightSum = sumNode(node.right,total);
+        
+        return leftSum || rightSum
+    }
+    return sumNode(root,0);
+};

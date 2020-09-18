@@ -28,3 +28,41 @@ var getIntersectionNode = function(headA, headB) {
     }
     return null;
 };
+=================================================================================================================
+//second submission
+var getIntersectionNode = function(headA, headB) {
+    let pA = headA;
+    let pB = headB;
+    
+    while(pA !== pB){
+        if(!pA){
+            pA = headA;
+        }else{
+            pA = pA.next;
+        }
+        if(!pB){
+            pB = headB;
+        }else{
+            pB = pB.next;
+        }
+    }
+    return pA;
+};
+
+//circular loop search
+
+var getIntersectionNode = function(headA, headB) {
+
+    function traverse(pA,pB){
+        if(pA == pB){
+            return pA;
+        }
+        if(!pA){
+            return traverse(headB,pB.next)
+        }if(!pB){
+            return traverse(pA.next,headA)
+        }
+        return traverse(pA.next,pB.next)
+    }
+    return traverse(headA,headB)
+};

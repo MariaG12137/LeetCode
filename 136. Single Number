@@ -18,3 +18,13 @@ var singleNumber = function(nums) {
     
     return nums[nums.length-1]
 };
+==================================================================================================================
+var singleNumber = function(nums) {
+    let numSort = nums.sort((a,b)=>a-b);
+    
+    for(let i=0; i<numSort.length;i=i+2){
+        if(numSort[i]-numSort[i+1] !== 0){
+            return numSort[i]
+        }
+    }
+};

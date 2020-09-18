@@ -15,3 +15,32 @@ var isPalindrome = function(s) {
     }
     return true;
 };
+=============================================================================================================================================
+
+var isPalindrome = function(s) {
+  // const wordChar = s.replace(/\W/g, "");
+    const letterRange = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+    let left = 0;
+    let right = 0;
+    
+    if(letterRange.length%2 == 1){
+        left = Math.floor(letterRange.length/2);
+        right = Math.floor(letterRange.length/2)
+    }else{
+        left = Math.floor(letterRange.length/2)-1;
+        right = Math.floor(letterRange.length/2)
+    }
+    
+    function spread(left, right){
+        while(left !== -1){
+            if(letterRange[left] !== letterRange[right]){
+                return false
+            }
+            left--;
+            right++
+        }
+        return true;
+    }
+    return spread(left,right)
+};

@@ -37,3 +37,60 @@ var isPalindrome = function(head) {
     }
     return traverse(head,reversed)
 };
+==========================================================================================================================
+//second submission
+var isPalindrome = function(head) {
+    let stack = [];
+    let p1 = head;
+    let p2 = head;
+    
+    while(p2 && p2.next){
+        stack.push(p1.val);
+        p1 = p1.next;
+        p2 = p2.next.next;
+    }
+    if(p2){
+        p1 = p1.next;
+    }
+    
+    while(p1){
+        if(stack.pop() !== p1.val){
+            return false
+        }else{
+            p1 = p1.next;
+        }
+    }
+    return true
+};
+========================================================================================================================
+var isPalindrome = function(head) {
+    let p1 = head;
+    let p2 = head;
+    //fast and slow pointers, find mid
+    while(p2 && p2.next){
+        p1 = p1.next;
+        p2 = p2.next.next;
+    }
+    //inverse mid
+    function reverse(node,prev){
+        if(node == null){
+            return prev;
+        }
+        const next = node.next;
+        node.next = prev;
+        return reverse(next, node)
+    }
+    let reversed = reverse(p1,null);
+    
+    //compare inversed mid with head
+    while(reversed){
+        if(head.val !== reversed.val){
+            return false;
+        }else{
+            head = head.next;
+            reversed = reversed.next;
+        }
+    }
+    return true
+};
+

@@ -21,3 +21,28 @@ var wordPattern = function(pattern, str) {
     }
     return helper(stringArr) === helper(patternArr);
 };
+==================================================================================================================================
+var wordPattern = function(pattern, s) {
+    let sArray = s.split(' ');
+    let patternArray = pattern.split('');
+    
+    if(sArray.length !== patternArray.length){
+        return false;
+    }
+
+    if(new Set(sArray).size !== new Set(patternArray).size){
+        return false;
+    }
+  
+    let map = new Map;
+    for(let i=0; i<patternArray.length;i++){
+        if(!map.has(patternArray[i])){
+            map.set(patternArray[i],sArray[i]);
+        }else{
+            if(map.get(patternArray[i])!== sArray[i]){
+                return false;
+            }
+        }
+    }
+    return true      
+};

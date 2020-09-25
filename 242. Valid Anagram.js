@@ -41,3 +41,31 @@ var isAnagram = function(s, t) {
     }
     return true;
 }
+=========================================================================================================
+//second submission
+var isAnagram = function(s, t) {
+    if(s.length !== t.length){
+        return false
+    }
+    
+    let map = new Map();
+    for(let char of s){
+        if(!map.has(char)){
+            map.set(char,1)
+        }else{
+            map.set(char,map.get(char)+1)
+        }
+    }
+    for(let char of t){
+        if(!map.get(char)){
+            return false
+        }
+        map.set(char,map.get(char)-1)
+    }
+    for(let value of map.values()){
+        if(value !== 0){
+            return false
+        }
+    }
+    return true
+};

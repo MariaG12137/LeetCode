@@ -23,3 +23,19 @@ var fizzBuzz = function(n) {
     }
     return array;
 };
+=============================================================================================================
+var fizzBuzz = function(n) {
+    let result = [];
+    for(let num=1; num<=n; num++){
+        if(Number.isInteger(num/15)){
+            result.push('FizzBuzz');
+        }else if(Number.isInteger(num/3)){
+            result.push('Fizz');
+        }else if(Number.isInteger(num/5)){
+            result.push('Buzz');
+        }else{
+            result.push(num.toString())
+        }
+    }
+    return result
+};

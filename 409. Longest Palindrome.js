@@ -47,3 +47,21 @@ var longestPalindrome = function(s) {
 
     return sum
 };
+===============================================================================================================
+//second submission
+var longestPalindrome = function(s) {
+    let map = new Map();
+    let result = 0;
+    for(let char of s){
+        if(!map.has(char)){
+            map.set(char,1);
+        }else{
+            map.set(char,map.get(char)+1);
+        }
+    }
+    for(let entry of map.entries()){
+        result += Math.floor(entry[1]/2)*2
+    }
+    return result === s.length ? result: result+1
+
+};

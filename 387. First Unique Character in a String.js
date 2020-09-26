@@ -19,3 +19,22 @@ var firstUniqChar = function(s) {
     }
     return -1;
 };
+==========================================================================================================================
+var firstUniqChar = function(s) {
+    let map = new Map();
+    
+    for(let i=0; i<s.length;i++){
+        if(!map.has(s[i])){
+            map.set(s[i],[i,1])
+        }else{
+            map.get(s[i])[1]++
+        }
+    }
+    
+    for(let value of map.values()){
+        if(value[1]==1){
+            return value[0]
+        }
+    }
+    return -1;
+};

@@ -15,3 +15,19 @@ var preorder = function(root) {
     traverse(root);
     return result;
 };
+===============================================================================================================
+//second submission
+var preorder = function(root) {
+    let result = [];
+    function preOrder(node){
+        if(!node){
+            return;
+        }
+        result.push(node.val);
+        for(let child of node.children){
+            preOrder(child);
+        }
+    }
+    preOrder(root);
+    return result
+};

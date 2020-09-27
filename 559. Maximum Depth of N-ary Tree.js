@@ -19,3 +19,17 @@ var maxDepth = function(root) {
 
     return nodeMax+1;
 };
+=============================================================================================
+//second submission
+var maxDepth = function(root) {
+    function depth(node){
+        if(!node) return 0;
+        
+        let nodeDepth =  1;
+        for(let child of node.children){
+            nodeDepth = Math.max(nodeDepth, 1+depth(child));
+        }
+        return nodeDepth;
+    }
+    return depth(root);
+};

@@ -63,3 +63,33 @@ var findLHS = function(nums) {
     return result;
 
 };
+==========================================================================================================================
+var findLHS = function(nums) {
+    let result = 0;
+    let map = new Map();
+    
+    for(let num of nums){
+        if(!map.has(num)){
+            map.set(num,[1,0,0])
+        }else{
+            map.get(num)[0]++;
+        }
+    }
+    
+    for(let num of nums){
+        if(map.has(num-1)){
+            map.get(num-1)[2]++;
+        }
+        if(map.has(num+1)){
+            map.get(num+1)[1]++;
+        }
+    }
+
+    for(let value of map.values()){
+        if(value[1]!==0 || value[2]!==0){
+            result = Math.max(result,value[0]+value[1],value[0]+value[2])
+        }
+    }
+    
+    return result
+};

@@ -29,3 +29,26 @@ var isSubtree = function(s, t) {
     return same;
 
 };
+=================================================================================================
+var isSubtree = function(s, t) {
+    
+    function subtree(nodeA,nodeB){
+        if(!nodeA && !nodeB){
+            return true;
+        }
+        if(!nodeA||!nodeB){
+            return false
+        }
+        if(nodeA.val !== nodeB.val){
+            return false;
+        }
+        return subtree(nodeA.left,nodeB.left) && subtree(nodeA.right,nodeB.right);        
+    }
+    
+    function traverse(nodeS,nodeT){
+        if(!nodeS){return false}
+        return subtree(nodeS,nodeT)||traverse(nodeS.left,nodeT) || traverse(nodeS.right,nodeT)
+    }
+    
+    return traverse(s,t);
+};

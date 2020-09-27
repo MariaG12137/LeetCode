@@ -20,3 +20,13 @@ var reverseWords = function(s) {
     
     return result.join('')
 };
+===========================================================================================================
+//second submission
+var reverseWords = function(s) {
+    let sArray = s.split(' ');
+    for(let i=0; i<sArray.length; i++){
+        sArray[i] = sArray[i].split('').reverse().join('');
+    }
+    return String(sArray.join(' '))
+    
+};

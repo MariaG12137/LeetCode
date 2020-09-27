@@ -47,3 +47,29 @@ var detectCapitalUse = function(word) {
 var detectCapitalUse = function(word) {
     return /^[A-Z]+$/.test(word) || /^[A-Z][a-z]+$/.test(word) || /^[a-z]+$/.test(word);
 };
+===========================================================================================================================
+//second submission
+var detectCapitalUse = function(word) {
+    if(/[A-Z]/.test(word[0])==false){
+        for(let i=1; i<word.length;i++){
+            if(/[A-Z]/.test(word[i])==true){
+                return false
+            }
+        }
+    }else{
+        if(/[A-Z]/.test(word[1])==true){
+           for(let i=2; i<word.length;i++){
+               if(/[A-Z]/.test(word[i])==false){
+                  return false
+               }
+           }
+        }else{
+            for(let i=2; i<word.length;i++){
+                if(/[A-Z]/.test(word[i])==true){
+                   return false
+                   }
+            }
+        }
+    }
+    return true;
+}

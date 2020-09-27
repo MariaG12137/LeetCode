@@ -20,3 +20,21 @@ var diameterOfBinaryTree = function(root) {
     diameter(root);
     return diam
 };
+===============================================================================================================================
+var diameterOfBinaryTree = function(root) {
+    let max = 0;
+    
+    function recur(node){
+        if(!node){
+            return 0
+        }  
+        
+        let left = recur(node.left);
+        let right = recur(node.right);
+        let path = 1+ left+right;
+        max = Math.max(max,path);
+        return 1+ Math.max(left, right);
+    }
+    recur(root);
+    return max==0? 0:max-1;
+};

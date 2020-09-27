@@ -46,3 +46,21 @@ var convertBST = function(root) {
 
     return root
 };
+===================================================================================================
+var bstToGst = function(root) {
+    let sum = 0;
+    function traverse(node){
+        if(!node){
+            return 0
+        }
+        
+        traverse(node.right);
+        
+        sum += node.val; 
+        node.val = sum;
+
+        traverse(node.left);
+    }
+    traverse(root);
+    return root
+};

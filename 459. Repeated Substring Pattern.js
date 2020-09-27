@@ -61,3 +61,39 @@ var repeatedSubstringPattern = function(s) {
     }
     return false
 }
+==========================================================================================================================================
+//second submission
+var repeatedSubstringPattern = function(s) {
+    
+    function compare(string){
+        if(s.length%string.length !== 0){
+            return false;
+        }
+        if(s.length===string.length){
+            return false;
+        }
+        let p1 = 0;
+        let p2 = 0;
+        while(s[p2]){
+            if(string[p1] === s[p2]){
+                p1++;
+                p2++;
+                if(!string[p1]){
+                    p1=0
+                }
+            }else{
+                return false
+            }
+        }
+        return true
+    }
+    
+    let string='';
+    for(let char of s){
+        string += char;
+        if(compare(string)){
+            return true
+        }
+    }
+    return false
+};

@@ -12,3 +12,24 @@ var validPalindrome = function (s) {
     }
     return true;
 };
+==================================================================================================================================
+var validPalindrome = function (s) {
+    function compare(l,r){
+        while(l<r){
+            if(s[l]===s[r]){
+                l++;
+                r--;
+            }else{
+                return [false,l,r]
+            }
+        }
+        return [true];
+    }
+    let result = compare(0,s.length-1);
+    
+    if(result[0]===true){
+        return true;
+    }else{
+        return compare(result[1]+1,result[2])[0]||compare(result[1],result[2]-1)[0]
+    }       
+};

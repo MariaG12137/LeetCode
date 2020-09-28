@@ -56,3 +56,21 @@ var findTarget = function(root, k) {
     }
     return false;
 };
+============================================================================================================
+//second submission
+var findTarget = function(root, k) {
+    let map = new Map();
+    function recur(node){
+        if(!node){
+            return false;
+        }
+        if(map.has(node.val)){
+            return true;
+        }
+        map.set(k-node.val);
+        
+        return recur(node.left) || recur(node.right);
+        
+    }
+    return recur(root);
+};

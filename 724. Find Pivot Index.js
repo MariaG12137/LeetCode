@@ -22,3 +22,21 @@ var pivotIndex = function(nums) {
     return -1
     
 };
+===============================================================================================
+//second submission
+var pivotIndex = function(nums) {
+    let sum = nums[0];
+    for(let i=1; i<nums.length;i++){
+        sum += nums[i];
+        nums[i] = sum;
+    }
+    nums.unshift(0);
+
+    for(let i=1; i<nums.length;i++){
+        if(nums[i]+nums[i-1]===nums[nums.length-1]){
+            return i-1;
+        }
+    }
+    return -1;
+    
+};

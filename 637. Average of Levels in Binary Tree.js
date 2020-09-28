@@ -26,3 +26,26 @@ var averageOfLevels = function(root) {
     }
     return total;
 };
+========================================================================================================================
+var averageOfLevels = function(root) {
+    let result = [];
+    function average(node,level){
+        if(!node){
+            return;
+        }
+        if(!result[level]){
+            result[level]=[node.val];
+        }else{
+            result[level].push(node.val);
+        }
+          
+        average(node.left,level+1);
+        average(node.right,level+1);
+    }
+    average(root,0);
+    for(let i=0; i<result.length;i++){
+        result[i]=result[i].reduce((a,b)=>a+b)/result[i].length;
+    }
+    return result;
+        
+};

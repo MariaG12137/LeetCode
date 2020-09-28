@@ -22,3 +22,33 @@ var searchBST = function(root, val) {
     search(root,val);
     return result;
 };
+=======================================================================================================
+//second submission
+    var searchBST = function(root, val) {
+    function traverse(node){
+        if(!node) return null;
+        
+        if(node.val === val){
+            return node
+        }
+        return traverse(node.left) || traverse(node.right);
+    }
+    return traverse(root);
+};
+================================================================================================================
+var searchBST = function(root, val) {
+    function traverse(node){
+        if(!node) return null;
+        
+        if(node.val === val){
+            return node
+        }
+        if(node.val<val){
+            return traverse(node.right)
+        }
+        if(node.val >val){
+            return traverse(node.left)
+        }
+    }
+    return traverse(root);
+};

@@ -18,9 +18,25 @@ var findMaxAverage = function(nums, k) {
 var findMaxAverage = function(nums, k) {
     let currSum = nums.slice(0 , k).reduce((r, n) => r + n, 0); //Initiate window
     let bestSum = currSum;
+    
     for (let i = 1; i < nums.length - k + 1; i++) {
         currSum = currSum - nums[i - 1] + nums[i + k - 1] //slide window
         bestSum = Math.max(bestSum, currSum);
     }
+    
     return bestSum / k;
+};
+=====================================================================================================
+var findMaxAverage = function(nums, k) {
+    let p1=0;
+    let p2=k-1;
+    let result = -Infinity;
+
+    while(nums[p2]!== undefined){
+
+        result = Math.max(result,nums.slice(p1,p2+1).reduce((a,b)=>a+b)/k);
+        p1++;
+        p2++;
+    }
+    return result
 };

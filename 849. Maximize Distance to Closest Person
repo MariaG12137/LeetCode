@@ -1,0 +1,59 @@
+/*
+You are given an array representing a row of seats where seats[i] = 1 
+represents a person sitting in the ith seat, and seats[i] = 0 represents that the ith seat is empty (0-indexed).
+*/
+var maxDistToClosest = function(seats) {
+    
+    let maxDis = 0;
+    
+    function maxDistance(i){      
+        let r = i+1;
+        while(seats[r] !== undefined && seats[r]!==1){
+            r++;
+        }
+        if(seats[i]===0){
+            return r;
+        }else{
+            if(seats[r]===undefined){
+                return r-i-1
+            }else{
+                return Math.floor((r-i)/2)
+            }
+        }
+        
+    }
+ 
+    for(let i=0; i<seats.length;i++){
+        if(i===0 && seats[i]===0){
+            maxDis = Math.max(maxDis,maxDistance(i));
+        }
+        if(seats[i]===1){
+            maxDis = Math.max(maxDis,maxDistance(i));
+        }
+    }
+    return maxDis;
+};
+========================================================================================================
+var maxDistToClosest = function(seats) {
+    let maxDis = 0;
+    function maxDistance(i){      
+        let r = i;
+        let l = i;
+        while(seats[r] !== undefined && seats[r]===0){
+            r++;
+        }
+        while(seats[l] !== undefined && seats[l]===0){
+            l--;
+        }
+
+        let left = seats[l]===undefined ? r-l-1: Math.floor((r-l)/2);
+        let right = seats[r]===undefined ? r-l-1: Math.floor((r-l)/2);
+        return Math.max(left,right)
+    }
+    for(let i=0; i<seats.length;i++){
+        if(seats[i]===0){
+            maxDis = Math.max(maxDis,maxDistance(i))
+        }
+    }
+    return maxDis
+};

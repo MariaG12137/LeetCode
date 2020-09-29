@@ -48,3 +48,35 @@ var uncommonFromSentences = function(A, B) {
     }
     return result
 };
+==================================================================================
+var uncommonFromSentences = function(A, B) {
+    let map = new Map();
+    let result = [];
+    
+    A = A.split(' ');
+    B = B.split(' ');
+    
+    for(let a of A){
+        if(!map.has(a)){
+            map.set(a,[1]);
+        }else{
+            map.get(a)[0]++;
+        }
+    }
+    for(let b of B){
+        if(!map.has(b)){
+            map.set(b,[1]);
+        }else{
+            map.get(b)[0]++;
+        }
+    }
+
+    for(let entry of map.entries()){
+        if(entry[0]!==' '){
+            if(entry[1][0]===1){
+                result.push(entry[0]);
+            }
+        }
+    }
+    return result;
+};

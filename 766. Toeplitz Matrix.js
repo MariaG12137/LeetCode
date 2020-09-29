@@ -26,3 +26,33 @@ var isToeplitzMatrix = function(matrix) {
     }
     return true;
 };
+=============================================================================================================
+var isToeplitzMatrix = function(matrix) {
+    function compare(x,y){
+        if(matrix[x]===undefined){
+            return;
+        }
+        if(matrix[x][y]===undefined){
+            return;
+        }
+        if(matrix[x+1]===undefined){
+            return;
+        }
+        if(matrix[x+1][y+1]===undefined){
+            return;
+        }
+        if(matrix[x][y]===matrix[x+1][y+1]){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    for(let i=0; i<matrix.length;i++){
+        for(let j=0; j<matrix[0].length;j++){
+            if(compare(i,j)===false){
+                return false
+            }
+        }
+    }
+    return true;
+};

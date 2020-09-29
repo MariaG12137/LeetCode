@@ -22,3 +22,22 @@ var fairCandySwap = function(A, B) {
         }
     }
 };
+==================================================================================
+//second submission
+var fairCandySwap = function(A, B) {
+    let diff = Math.floor((A.reduce((a,b)=>a+b)-B.reduce((a,b)=>a+b))/2);
+
+    let map = new Map();
+    for(let a of A){
+        if(!map.has(a-diff)){
+            map.set(a-diff)
+        }
+    }
+
+    for(let b of B){
+        if(map.has(b)){
+            return [b+diff,b]
+        }
+    }
+    
+};

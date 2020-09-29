@@ -29,3 +29,33 @@ var rotateString = function(A, B) {
         }
     return search(A,B)
 }
+================================================================================================================================
+var rotateString = function(A, B) {
+    if(A.length!==B.length){
+        return false;
+    }
+    if(A.length===0 && B.length===0){
+        return true;
+    }
+    function compare(p1,p2){
+        while(p1<A.length){
+            if(B[p2]===undefined){
+                p2=0;
+            }
+            if(A[p1]===B[p2]){
+                p1++;
+                p2++;
+            }else{
+                return false
+            }
+        }
+        return true
+    }
+    
+    for(let i=0; i<B.length;i++){
+        if(compare(0,i) === true){
+            return true;
+        }
+    }
+    return false
+};

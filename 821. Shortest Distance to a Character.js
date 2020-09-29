@@ -36,3 +36,26 @@ var shortestToChar = function(S, C) {
     return result
 
 }
+===================================================================================================
+var shortestToChar = function(S, C) {
+    let result = [];
+    function spread(index){
+        let l = index;
+        let r = index;
+        while(S[l]!==undefined && S[l]!==C){
+            l--;
+        }
+        while(S[r]!==undefined && S[r]!==C){
+            r++;
+        }
+        let left = S[l]===undefined ? Infinity:index-l;
+        let right = S[r]===undefined ? Infinity: r-index;
+        
+        result.push(Math.min(left,right));     
+    }
+    for(let i=0; i<S.length;i++){
+        spread(i);
+    }
+
+    return result;
+};

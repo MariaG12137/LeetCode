@@ -15,3 +15,16 @@ var numJewelsInStones = function(J, S) {
 
     return count;
 };
+===================================================================================================
+//second submission
+var numJewelsInStones = function(J, S) {
+    let map = new Map(J.split('').map(entry => [entry]));
+    let result = 0;
+    for(let stone of S){
+        if(map.has(stone)){
+            result++;
+        }
+    }
+    return result;
+    
+};

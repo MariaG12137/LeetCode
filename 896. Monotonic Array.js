@@ -20,3 +20,27 @@ var isMonotonic = function(A) {
     }
     return increase || decrease 
 };
+=====================================================================================
+var isMonotonic = function(A) {
+    
+    let sign = 0;
+    for(let i=1; i<A.length; i++){
+        if(A[i] < A[i-1]){
+            if(sign === 0){
+                sign = 1;
+            }
+            if(sign === -1){
+                return false;
+            }
+        }else if(A[i] > A[i-1]){
+            if(sign === 0){
+                sign = -1
+            }
+            if(sign === 1){
+                return false;
+            }
+        }
+    }
+    console.log(sign)
+    return true;
+};

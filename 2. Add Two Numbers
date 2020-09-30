@@ -64,3 +64,35 @@ var addTwoNumbers = function(l1, l2) {
     }
     return result.next
 };
+==================================================================================================================
+var addTwoNumbers = function(l1, l2) {
+    let inc = 0;
+    let result = new ListNode();
+    let p1 = result;
+    
+    function addNode(n1,n2,incre){
+          
+        if(n1.val+n2.val+incre>=10){
+            result.next = new ListNode(n1.val+n2.val+incre-10);
+            inc = 1;
+        }else{
+            result.next = new ListNode(n1.val+n2.val+incre);
+            inc = 0;
+        }
+        result = result.next;
+        
+        if(n1.next && n2.next){
+            addNode(n1.next,n2.next,inc,inc);
+        }else if(n2.next){
+            addNode(new ListNode(0),n2.next,inc);
+        }else if(n1.next){
+            addNode(n1.next,new ListNode(0),inc)
+        }
+        return;
+    }
+    addNode(l1,l2,0);
+    if(inc===1){
+        result.next = new ListNode(1);
+    }
+    return p1.next;
+};
